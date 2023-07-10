@@ -13,6 +13,7 @@ initialState :{
       state:'AL',
       zipCode:'',
       department:'Sales',
+      connected: false
 
 },
 reducers :{
@@ -97,10 +98,16 @@ reducers :{
       return {...state, department:action.payload.value}
     }
   },
+  SetConnected :{
+    reducer:(state)=>{
+      return {...state, connected:true}
+    }
+  }
 }
 })
 
-export const {setFristName,setLastName,setState,setDepartment,setZipCode,setCity,setStreet,setStartDate,setDateOfBirth} = actions
+export const {setFristName,setLastName,setState,setDepartment,
+  setZipCode,setCity,setStreet,setStartDate,setDateOfBirth,SetConnected} = actions
 export default reducer
 
 
