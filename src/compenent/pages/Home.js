@@ -1,5 +1,5 @@
 import React from "react";
-/* import ListsState from "../app/ListsState" */
+import {states,departments} from "../../data/datas";
 import ListDepartment from "../app/ListsDepartment" 
 import DatesPicker from"../app/Datespicker"
 import { Link } from "react-router-dom"
@@ -7,9 +7,10 @@ import { useDispatch, useSelector  } from 'react-redux'
 import * as actions from '../../outils/reducer/employeeReducer' 
 import Modal from'../containers/Modal'
 import {ListDeroulant} from 'yu-component-library'
-import states from'../../data/stateData'
+
 
 function Home(){
+
 const state = useSelector((state)=>(state.employee))
 const{connected} = state
 const dispatch= useDispatch()
@@ -63,11 +64,10 @@ return(
                         <label >State</label>
 
                         <ListDeroulant
-                        react={React}  
-                        datas={states} 
-                        optionName='name'
-                        valueName='abbreviation'
-                        onChange={(value)=>dispatch(actions.setDepartment(value))}
+                            datas={states} 
+                            optionName='name'
+                            valueName='abbreviation'
+                            onChange={(value)=>dispatch(actions.setState(value))}
                         />
 
                         <label>Zip Code</label>
@@ -77,7 +77,12 @@ return(
                     </fieldset>
 
                     <label htmlFor="department">Department</label>
-                    <ListDepartment/>
+                    <ListDeroulant
+                        datas={departments} 
+                        optionName='department'
+                        onChange={(value)=>dispatch(actions.setDepartment(value))}
+                        />
+
                 </form>
                 <button onClick={handleSubmit}>Save</button>
             </div>

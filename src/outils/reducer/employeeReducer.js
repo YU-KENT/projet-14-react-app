@@ -77,6 +77,7 @@ reducers :{
       payload:{value}
     }), 
     reducer:(state,action)=>{
+      console.log("setState",action.payload.value)
       return {...state, state:action.payload.value}
     }
   },
@@ -95,6 +96,7 @@ reducers :{
       payload:{value}
     }), 
     reducer:(state,action)=>{
+      console.log("setDepartment",action.payload.value)
       return {...state, department:action.payload.value}
     }
   },

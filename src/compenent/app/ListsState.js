@@ -1,4 +1,4 @@
-import states from'../../data/stateData'
+import states from'../../data/datas'
 import { useDispatch} from 'react-redux'
 import * as actions from '../../outils/reducer/employeeReducer'
 
