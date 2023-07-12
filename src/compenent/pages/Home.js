@@ -1,7 +1,6 @@
 import React from "react";
-import {states,departments} from "../../data/datas";
-import ListDepartment from "../app/ListsDepartment" 
-import DatesPicker from"../app/Datespicker"
+import {states,departments} from "../../data/data";
+import DatesPicker from"../containers/Datespicker"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector  } from 'react-redux'
 import * as actions from '../../outils/reducer/employeeReducer' 
