@@ -1,58 +1,50 @@
 import { useState } from "react";
 import DataTable from "react-data-table-component";
-import{columns,paginationComponentOptions,SubHeaderComponent}from'../../features/TableComponent'
+import SubHeaderComponent from "./SubHeaderComponent";
+import{columns,paginationComponentOptions}from'../../features/TableComponentOption'
 
-const data = JSON.parse(localStorage.getItem('employees'))// get employess localstorage
-console.log("_______",data)
+
 const collectEmpolyeeValues = (obj)=> { //collect employee object values for filtering
-	
 	let result =''
 	for(const key in obj){
        if(obj.hasOwnProperty(key)){
 		result += obj[key]
 	   }
 	}
-	
-	return result
-    
+	return result 
 }
 
-function TableComponent ()  {
- const [searchText, setSearchText] = useState("");
-  const [paginationPerPage,SetpaginationPerPage] =useState("2")
-  const [currentPage, setCurrentPage] = useState(1);
-  const filteredData = data?data.filter(
+function TableComponent ( {datas})  {
+  console.log('________',datas)
+  const [searchText, setSearchText] = useState("");
+  const [paginationPerPage,SetpaginationPerPage] =useState("10")
+  const [currentPage,setCurrentPage]=useState("1")
+  const filteredData = datas?datas.filter(
     (employee) =>
-    collectEmpolyeeValues(employee).toLowerCase().includes(searchText.toLowerCase()) 
-      
-  ):'';
+    collectEmpolyeeValues(employee).toLowerCase().includes(searchText.toLowerCase())   
+    ):'';
+
   const handleValueSearchTxt =(value)=>{
-
     setSearchText(value)
-
   }
+
   const handleNumPerPage =(value)=>{
     console.log("handleNumPerPage",value)
     SetpaginationPerPage(value)
   }
+
+  const paginatedData = filteredData.slice(
+    (currentPage - 1) * paginationPerPage,
+     currentPage * paginationPerPage
+  );
+  const page = Math.ceil(filteredData.length / paginationPerPage);
+
   const customPagination = () => {
-    const page = Math.ceil(filteredData.length / paginationPerPage);
-    const pageButtons = [];
-
-    for (let i = 1; i <= page; i++) {
-      pageButtons.push(
-        <button
-          key={i}
-          className={`btn-pagination ${currentPage === i ? "active" : ""}`}
-          onClick={() => setCurrentPage(i)}
-        >
-          {i}
-        </button>
-      );
-    }
-
     return (
       <div className="pagination-container">
+        <div>
+          <span>Showing 1 to {paginatedData.length} of {filteredData.length} entries</span>
+        </div>
         <button
           className="btn-pagination"
           onClick={() => setCurrentPage(currentPage - 1)}
@@ -60,7 +52,7 @@ function TableComponent ()  {
         >
         Previous
         </button>
-        {pageButtons}
+        {currentPage}
         <button
           className="btn-pagination"
           onClick={() => setCurrentPage(currentPage + 1)}
@@ -71,15 +63,7 @@ function TableComponent ()  {
       </div>
     );
   };
-
-
-
-
-  const paginatedData = filteredData.slice(
-    (currentPage - 1) * paginationPerPage,
-    currentPage * paginationPerPage
-  );
-
+ 
   return (
     <>
       <DataTable
@@ -95,10 +79,12 @@ function TableComponent ()  {
         pointerOnHover
         subHeader
         subHeaderAlign="left"
-        subHeaderComponent={<SubHeaderComponent 
+        subHeaderComponent={
+           <SubHeaderComponent 
             onValueChange={handleValueSearchTxt}
             NumperPageChange={handleNumPerPage}
-            />}
+            />
+          }
         
       />
     </>

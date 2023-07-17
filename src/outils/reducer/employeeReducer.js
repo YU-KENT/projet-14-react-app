@@ -13,7 +13,6 @@ initialState :{
       state:'AL',
       zipCode:'',
       department:'Sales',
-      connected: false
 
 },
 reducers :{
@@ -41,6 +40,7 @@ reducers :{
       payload:{value}
     }), 
     reducer:(state,action)=>{
+      console.log("startday",action.payload.value)
       return {...state, startDate:action.payload.value}
     }
   },
@@ -50,6 +50,7 @@ reducers :{
       payload:{value}
     }), 
     reducer:(state,action)=>{
+      console.log("birthday",action.payload.value)
       return {...state, dateOfBirth:action.payload.value}
     }
   },
@@ -100,16 +101,12 @@ reducers :{
       return {...state, department:action.payload.value}
     }
   },
-  SetConnected :{
-    reducer:(state)=>{
-      return {...state, connected:true}
-    }
-  }
+
 }
 })
 
 export const {setFristName,setLastName,setState,setDepartment,
-  setZipCode,setCity,setStreet,setStartDate,setDateOfBirth,SetConnected} = actions
+  setZipCode,setCity,setStreet,setStartDate,setDateOfBirth} = actions
 export default reducer
 
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 export const caseInsensitiveSort = (rowA, rowB) => {
     const a = (rowA.firstName ||rowA.lastName).toLowerCase();
@@ -95,45 +95,3 @@ export const customStyles = {
     },
 };
 
-export const SubHeaderComponent = ({onValueChange,NumperPageChange})=>{
-   
- 
-    
-   
-   const [resetPaginationToggle, setResetPaginationToggle] = useState(
-    false
-  );
-    const handleSearch = (value) => {
-        onValueChange(value);
-        setResetPaginationToggle(!resetPaginationToggle);
-      };
-    
-      const handleCategoryChange = (value) => {
-        console.log('childComponent,NumperPageChange',value)
-        NumperPageChange(value);
-        setResetPaginationToggle(!resetPaginationToggle);
-      };
-    return(
-        <div className="table_subHeader">
-            <div className="categories">
-                <span>Show</span>
-                <select onChange={(e) => handleCategoryChange(e.target.value)}>
-                <option value="2">2</option>
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                <span>entries</span>
-           </div>
-            <div className='table_search'>
-            <input type="text" placeholder="Search by name"
-                /* value={searchText} */
-                onChange={(e) => handleSearch(e.target.value)}
-            />
-            </div>
-        
-       </div>
-
-    )
-}
