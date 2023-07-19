@@ -27,7 +27,7 @@ const handleSubmit = ()=>{
     employees.push(state);
     localStorage.setItem('employees', JSON.stringify(employees));
 }
-
+const [startDate, setStartDate] = useState(new Date());
 return(
    
      <><section>
@@ -53,7 +53,7 @@ return(
 
                 <label>Start Date</label>
                 <DatesPicker day='setStartDate' />
-
+                
                 <fieldset className="address">
                     <legend>Address</legend>
 

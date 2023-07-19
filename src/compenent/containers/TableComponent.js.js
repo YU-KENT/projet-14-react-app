@@ -38,7 +38,6 @@ function TableComponent ( {datas})  {
      currentPage * paginationPerPage
   );
   
-
   const customPagination = () => {
     const pageButtons = [];
     const page = Math.ceil(filteredData.length / paginationPerPage);

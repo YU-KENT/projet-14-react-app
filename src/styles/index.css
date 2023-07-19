@@ -184,7 +184,16 @@ margin-right: 20px;
 .close-button:hover {
   background-color: #0056b3;
 }
+.react-datepicker__current-month{
+  display: none;
+}
 
+.react-datepicker__header__dropdown select{
+  outline: none;
+  border:none;
+  border-bottom:1px solid black;
+  font-weight: bold;
+}
 .gocYik,.rdt_TableHeadRow,.sc-eqUAAy{
   background-color: black !important;
   color:#ffffff;
@@ -221,7 +230,6 @@ margin-right: 20px;
 
 .active{
   background-color: black;
-
   color:#ffffff
 }
 .btn-pagination-page{
