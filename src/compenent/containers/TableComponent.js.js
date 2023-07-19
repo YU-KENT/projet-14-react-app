@@ -37,14 +37,29 @@ function TableComponent ( {datas})  {
     (currentPage - 1) * paginationPerPage,
      currentPage * paginationPerPage
   );
-  const page = Math.ceil(filteredData.length / paginationPerPage);
+  
 
   const customPagination = () => {
+    const pageButtons = [];
+    const page = Math.ceil(filteredData.length / paginationPerPage);
+    for (let i = 1; i <= page; i++) {
+      pageButtons.push(
+        <button
+          key={i}
+          className={`btn-pagination-page ${currentPage === i ? "active" : ""}`}
+          onClick={() => setCurrentPage(i)}
+        >
+          {i}
+        </button>
+      );
+    }
+
     return (
       <div className="pagination-container">
-        <div>
+        <div className="dataTables_info"> 
           <span>Showing 1 to {paginatedData.length} of {filteredData.length} entries</span>
         </div>
+        <div className="dataTables_page">
         <button
           className="btn-pagination"
           onClick={() => setCurrentPage(currentPage - 1)}
@@ -52,7 +67,7 @@ function TableComponent ( {datas})  {
         >
         Previous
         </button>
-        {currentPage}
+        {pageButtons}
         <button
           className="btn-pagination"
           onClick={() => setCurrentPage(currentPage + 1)}
@@ -60,6 +75,7 @@ function TableComponent ( {datas})  {
         >
         Next
         </button>
+        </div>
       </div>
     );
   };

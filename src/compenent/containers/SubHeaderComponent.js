@@ -25,7 +25,8 @@ function SubHeaderComponent ({onValueChange,NumperPageChange}){
                  <span>entries</span>
             </div>
              <div className='table_search'>
-                <input type="text" placeholder="Search by name"
+                <label>Search:</label>
+                <input type="text" placeholder=''
                     onChange={(e) => handleSearch(e.target.value)}
                 />
              </div>

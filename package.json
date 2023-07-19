@@ -17,7 +17,7 @@
     "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
-    "yu-component-library": "^0.2.1"
+    "yu-component-library": "^0.2.3"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.14.5"
