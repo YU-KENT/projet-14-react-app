@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import TableComponent  from'../containers/TableComponent.js'
+import TableComponent  from'../compenent/containers/TableComponent.js.js'
 
 
 function Employees(){

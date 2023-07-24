@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 
 import './styles/index.css'
 import { BrowserRouter as Router, Route,Routes } from 'react-router-dom'
-import Home from './compenent/pages/Home'
-import Employees from './compenent/pages/Employees'
+import Home from './pages/Home'
+import Employees from './pages/Employees'
 import { Provider } from 'react-redux'
 import store from'./outils/reducer/store'
 

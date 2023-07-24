@@ -82,7 +82,7 @@ label {
   justify-content:space-between;
   align-items: center;
   width:100vw;
-  font-size: 20px;
+  font-size: 18px;
 
 }
 .table_subHeader select{
@@ -216,7 +216,7 @@ margin-right: 20px;
 }
 .dataTables_info,.dataTables_page{
   margin: 20px 100px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .btn-pagination{

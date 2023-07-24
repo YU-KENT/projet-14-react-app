@@ -1,10 +1,10 @@
 import React from "react";
-import {states,departments} from "../../data/data";
-import DatesPicker from"../containers/Datespicker"
+import {states,departments} from "../data/data";
+import DatesPicker from"../compenent/containers/Datespicker"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector  } from 'react-redux'
-import * as actions from '../../outils/reducer/employeeReducer' 
-import UserCreatedModal from'../containers/Modal';
+import * as actions from '../outils/reducer/employeeReducer' 
+import UserCreatedModal from'../compenent/containers/Modal';
 import {ListDeroulant} from 'yu-component-library'
 import { useState } from 'react'
 
@@ -27,7 +27,7 @@ const handleSubmit = ()=>{
     employees.push(state);
     localStorage.setItem('employees', JSON.stringify(employees));
 }
-const [startDate, setStartDate] = useState(new Date());
+
 return(
    
      <><section>

@@ -18,6 +18,13 @@ const formatDay =  (value)=> {
         return `${day}-${month}-${year}`;
     }
 
+const handleDate =(date)=>{
+  setStartDate(date)
+  const formattedDate = formatDay(date)
+  isBirthDay? dispatch(actions.setDateOfBirth(formattedDate))
+  : dispatch(actions.setStartDate(formattedDate))
+
+}
 return (
 <DatePicker 
 peekNextMonth
@@ -25,12 +32,7 @@ showMonthDropdown
 showYearDropdown
 dropdownMode="select"
 selected={startDate}
-onChange={(date) => {
-setStartDate(date)
-const formattedDate = formatDay(date)
-isBirthDay? dispatch(actions.setDateOfBirth(formattedDate))
-: dispatch(actions.setStartDate(formattedDate))
-}} 
+onChange={(date) => handleDate(date)} 
 />
 
 )
